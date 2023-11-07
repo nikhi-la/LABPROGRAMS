@@ -1,0 +1,201 @@
+<html>
+
+<head>
+
+   <title> Table And LINK </title>
+   <style>
+      .required {
+         color: red;
+      }
+
+      a {
+         text-decoration: none;
+         color: blue;
+      }
+
+      input[type="submit"] {
+         background: lightblue;
+         height: 30;
+         width: 65;
+         border-radius: 7%;
+      }
+
+      input[type="reset"] {
+         height: 30;
+         width: 65;
+         border-radius: 7%;
+      }
+   </style>
+
+
+
+</head>
+
+<script type="text/javascript">
+
+   function validation() {
+
+      if (document.forms.form1.firstname.value == "") {
+
+         window.alert("Enter Firstname");
+         document.forms.form1.firstname.focus();
+         return false;
+
+      }
+      else if (document.forms.form1.lastname.value == "") {
+
+         window.alert("Enter Lastname");
+         document.forms.form1.lastname.focus();
+         return false;
+
+      }
+      else if (document.forms.form1.dob.value == "") {
+
+         window.alert("Enter DOB");
+         document.forms.form1.dob.focus();
+         return false;
+
+      }
+
+      else if (document.forms.form1.phone.value == "") {
+
+         window.alert("Enter Phone Number");
+         document.forms.form1.phone.focus();
+         return false;
+
+      }
+      else if (document.forms.form1.address.value == "") {
+
+         window.alert("Enter Address");
+         document.forms.form1.address.focus();
+         return false;
+
+      }
+
+      else if (document.forms.form1.email.value == "") {
+
+         window.alert("Enter Email");
+         document.forms.form1.email.focus();
+         return false;
+
+      }
+      else if (document.forms.form1.password.value == "") {
+
+         window.alert("Enter Password");
+         document.forms.form1.password.focus();
+         return false;
+
+      }
+      else {
+
+         window.alert("Login Successful");
+
+         return true;
+
+      }
+
+   }
+
+
+
+</script>
+
+<body bgcolor="grey">
+
+   <br>
+
+
+   <center>
+
+      <h2><u><b>REGISTRATION</b></u></h2>
+
+      <form id="form1" onsubmit="return validation()" action="table.html">
+
+         <table height="300" width="350" cellpadding="15" bgcolor="lightgrey">
+
+            <tr>
+
+               <td>First Name<span class=required>*</span></td>
+
+               <td><input type="text" id="firstname" /></td>
+
+            </tr>
+
+            <tr>
+
+               <td>Last Name<span class=required>*</span></td>
+
+               <td><input type="text" name="lastname" /></td>
+
+            </tr>
+
+            <tr>
+
+               <td>DOB<span class=required>*</span></td>
+
+               <td><input type="date" name="dob" /></td>
+
+            </tr>
+
+
+            <tr>
+
+               <td>Phone<span class=required>*</span></td>
+
+               <td><input type="text" name="phone" /></td>
+
+            </tr>
+
+            <tr>
+
+               <td>Address<span class=required>*</span></td>
+
+               <td><textarea rows="4"></textarea></td>
+
+            </tr>
+
+            <tr>
+
+               <td>Email<span class=required>*</span></td>
+
+               <td><input type="email" name="email" /></td>
+
+            </tr>
+
+            <tr>
+
+               <td>Password<span class=required>*</span></td>
+
+               <td><input type="password" name="password"  /></td>
+
+            </tr>
+
+            <tr>
+
+               <td colspan="2">
+                  <center><input type="submit" name="signin" value="Sign In" />&nbsp&nbsp&nbsp&nbsp<input type="reset"
+                        name="reset" value="Reset" /></center>
+               </td>
+
+            </tr>
+
+            <tr>
+
+               <td colspan="2">
+                  <center><a href="first.html" />Go To Homepage</a></center>
+               </td>
+
+            </tr>
+
+
+
+
+         </table>
+      </form>
+
+   </center>
+
+</body>
+
+
+</html>
