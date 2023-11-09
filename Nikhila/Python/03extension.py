@@ -1,3 +1,3 @@
-filename=input("Enter string\n")
+filename=input("Enter File name\n")
 extension=filename.split('.')
-print("Extension is",extension[-1])
+print('The Extension is ',extension[-1])

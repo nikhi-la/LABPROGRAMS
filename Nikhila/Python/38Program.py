@@ -15,7 +15,7 @@ print('b.The',n,'is divisible by 5 :',divisible(n))
 
 #c.To remove strings with length<5 from a list of strings
 s=input("Enter a sentence\n").split()
-newlist=list(filter(lambda x:len(x)>=5,s))
+newlist=list(filter(lambda x:len(x)<5,s))
 print('c.New list after removing is',newlist)
 
 

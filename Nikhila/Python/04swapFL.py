@@ -1,2 +1,2 @@
-s=input("Enter string \n")
-print("The string after swapping is",s[-1]+s[1:-1]+s[0])
+s=input("Enter String\n")
+print(s[-1]+s[1:-1]+s[0])

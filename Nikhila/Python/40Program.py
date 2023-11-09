@@ -1,13 +1,16 @@
 #sum of elements in a list
 
 #normal method
-
+def sum_normal(numbers):
+    sum=0
+    for i in numbers:
+        sum=sum+i
+    return sum
+    
 numbers=input("Enter numbers\n").split()
 numbers=list(map(int,numbers))
-sum=0;
-for i in numbers:
-    sum=sum+i
-print('Sum is',sum)
+print("Sum is",sum_normal(numbers))
+
 
 #recursion
 

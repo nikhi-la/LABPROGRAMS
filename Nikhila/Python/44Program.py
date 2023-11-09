@@ -1,16 +1,14 @@
-#reverse a string using recursion
-#normal method
+#Reverse a string
+def reverse(s):
+    return s[::-1]
 
-s=input('Enter string\n')
-rev=s[::-1]
-print("Without recursion :",rev)
+s=input("Enter the string\n")
+print('Reverse of',s,'is',reverse(s))
 
-
-#using recursion
-
-def string_rev(s):
-    if not len(s):return ''
+#recursion
+def reverse_rec(s):
+    if len(s)==1:return s
     else:
-        return s[-1]+string_rev(s[:-1])
+        return s[-1]+reverse(s[:-1])
 
-print('Using recursion :',string_rev(s))
+print('Reverse of',s,'using recursion is',reverse_rec(s))

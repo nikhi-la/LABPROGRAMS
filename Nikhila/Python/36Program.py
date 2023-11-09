@@ -1,12 +1,11 @@
-
-def even_num(numbers):
+def even_numbers(numbers):
     for i in numbers:
-        if i==237:
+        if(i==237):
             break
         elif not i%2:
-            print(i,end=' ')
+            print(i)
 
-
-numbers=[1,2,3,4,5,237,6]
-print('The even numbers are',end=' ')
-even_num(numbers)
+            
+number=input("Enter numbers\n").split()
+numbers=map(int,number)
+even_numbers(numbers)

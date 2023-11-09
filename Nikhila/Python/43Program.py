@@ -1,17 +1,20 @@
-num=int(input('Enter number\n'))
+#Sum of digits of a number
+#Normal Function
+def sum_digits(num):
+    sumn=0
+    while(num>0):
+        sumn=sumn+num%10
+        num=num//10
+    return sumn
+
+num=int(input("Enter number\n"))
 x=num
+print('Sum of digits :',sum_digits(num))
 
-#normal method
-sum_n=0
-while num>0:
-    sum_n=sum_n+num%10
-    num=num//10
-print('Sum without recursion :',sum_n)
-    
-#recursion
-def sum_digits(x):
-    if not x//10:return x
+#Recursion
+def sum_rec(n):
+    if not n//10:return n
     else:
-        return x%10+sum_digits(x//10)
+        return n%10+sum_rec(n//10)
 
-print('Sum using recursion :',sum_digits(x))
+print('Sum of digits using recursion:',sum_rec(x))

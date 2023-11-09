@@ -1,6 +1,8 @@
-s=input("Enter String\n")
+s=input("Enter a string\n")
 rev=s[::-1]
-if(s==rev):
-    print(s,"is pallindrome")
+print(rev)
+if(s == rev):
+    print("String is pallindrome")
+
 else:
-    print(s,"is not pallindrome")
+    print("String is not pallindrome")
