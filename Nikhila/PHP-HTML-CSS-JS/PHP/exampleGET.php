@@ -15,7 +15,7 @@
                 <input type='number' name='num2'><br><br>
             
                 <input type='submit' name='add' value='Add'>&nbsp;&nbsp;<input type='submit' name='diff' value='Subtract'>
-                &nbsp;&nbsp;<input type='submit' name='pro' value='Multiply'>&nbsp;&nbsp;<input type='submit' name='quo' value='Divide'><br><br>
+                &nbsp;&nbsp;<input type='submit' name='pro' value='Multiply'>&nbsp;&nbsp;<input type='submit' name='quo' value='Divide'><br><br><br><br>
             
             <?php
                 if(isset($_GET['add']))
@@ -78,8 +78,11 @@
         
         
         
-    </center>
+   
         
+    <iframe src="SampleProgram.php" width="500" height="100" ></iframe>
+     <iframe src="SampleProgram2.php" width="500" height="100" ></iframe>
+     
     </body>
     
 </html>
