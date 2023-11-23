@@ -3,7 +3,7 @@
 int parent[10];
 void main()
 {
-    int n,i,j,k,mincost,x,temp,costs,u,v;
+    int n,i,j,k,mincost,x,temp,costs,u,v,m;
 	int cost[10][10],t[10][2],heap[10],U[10],V[10];
 	clrscr();
 	//Enter number of vertices
@@ -77,6 +77,9 @@ void main()
 
 			printf("%d<- %d-> %d\n",U[i],heap[i],V[i]);
 	}
+	mincost=0;
+	while(m<n-1)
+	{
 	for(i=0;i<x;++i)
 	{
 		costs=heap[i];
@@ -85,8 +88,18 @@ void main()
 		v=V[i];
 		j=find(u);
 		k=find(v);
-		printf("%d %d\n",j,k);
+		//printf("%d %d\n",j,k);
+		if(i!=j)
+		{
+		   m=m+1;
+		   t[m][1]=u;
+		   t[m][2]=v;
+		   mincost=mincost+cost[u][v];
 
+
+		}
+
+	}
 	}
 
 
