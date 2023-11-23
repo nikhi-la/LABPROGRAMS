@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <conio.h>
+int parent[10];
 void main()
 {
-    int n,i,j,k,mincost,x,temp;
-	int cost[10][10],t[10][2],parent[10],heap[10];
+    int n,i,j,k,mincost,x,temp,costs,u,v;
+	int cost[10][10],t[10][2],heap[10],U[10],V[10];
 	clrscr();
 	//Enter number of vertices
 	printf("Enter number of vertices\n");
@@ -35,6 +36,8 @@ void main()
 				else
 				{
 					heap[x]=cost[i][j];
+					U[x]=i;
+					V[x]=j;
 					x++;
 				}
 				cost[j][i]=cost[i][j];
@@ -61,22 +64,46 @@ void main()
 		printf("%d ",parent[i]);
 	}
 	printf("\n");
-	for(i=0;i<x;++i)
-	{
-	printf("%d ",heap[i]);
+
+	for(i=0;i<x;++i){
+		/*for(j=i+1;j<=x;++j){
+			if(heap[i]>heap[j]){
+				temp=heap[i];
+				heap[i]=heap[j];
+				heap[j]=temp;
+			}
+
+		}*/
+
+			printf("%d<- %d-> %d\n",U[i],heap[i],V[i]);
 	}
 	for(i=0;i<x;++i)
-		{
-		if(heap[i]>heap[i+1])
-			{
-			temp=heap[i];
-			heap[i]=heap[i+1];
-			heap[i+1]=temp;
+	{
+		costs=heap[i];
+		heap[i]=0;
+		u=U[i];
+		v=V[i];
+		j=find(u);
+		k=find(v);
+		printf("%d %d\n",j,k);
 
-			}
-			printf("%d ",heap[i]);
-		}
+	}
+
+
 
 
 	getch();
+}
+
+int find(u)
+{
+	if(parent[u]==-1)
+	{
+		return u;
+	}
+	else
+	{
+		return parent[u];
+	}
+
 }
