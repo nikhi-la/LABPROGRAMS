@@ -1,0 +1,14 @@
+01circlearea.py - Area of circle
+02replacechar.py - Create a string where all occurence of first character is replaced with '&'
+03extension.py - Print extension of the file
+04swapFL.py - Create a word by exchanging first and last characters
+05swapchar.py - Create a single string separated with space from two strings by swapping the character at position 1
+06largeof3.py - Largest of three numbers
+07strreverse.py - Reverse a string
+08comma-rep-hyphen.py - Replace the separator ',' with hyphen(-)
+09count.py - Count the occurences of a character in the string
+10colors.py - Create a comma separated list of colors and print alternate colors
+11listlen.py - Count number of words in a line of text
+12namecount.py - Create a list of first names.Count the number of names starts with 'a'
+13listcomprehension.py - List Comprehension
+14pallindrome.py - 
