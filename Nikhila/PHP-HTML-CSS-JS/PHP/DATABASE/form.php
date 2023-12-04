@@ -4,6 +4,24 @@ $con=new mysqli('localhost','root','','MCA');
 if($con->connect_error)
     die("Connection failed\n");
 
+$eid="";
+$id="";
+$name="";
+$mark="";
+if(isset($_GET["uid"]))
+{
+    $eid=$_GET["uid"];
+    
+    $sel="select * from student where stud_id=$eid";
+    $data=mysqli_query($con,$sel);
+    $row=mysqli_fetch_assoc($data);
+    $id=$row['stud_id'];
+    $name=$row['stud_name'];
+    $mark=$row['stud_mark'];
+           
+}
+
+    
 ?>
 <html>
     
@@ -14,15 +32,16 @@ if($con->connect_error)
             <table border="1">
                 <tr>
                     <td>Id</td>
-                    <td><input type="text" name="id"></td> 
+                    <td><input type="hidden" name="id" value="<?php echo $eid ?>">
+                        <input type="text" name="id" value="<?php echo $id ?>"></td> 
                 </tr>
                                 <tr>
                     <td>Name</td>
-                    <td><input type="text" name="name"></td> 
+                    <td><input type="text" name="name" value="<?php echo $name ?>"></td> 
                 </tr>
                                 <tr>
                     <td>Mark</td>
-                    <td><input type="text" name="mark"></td> 
+                    <td><input type="text" name="mark" value="<?php echo $mark ?>"></td> 
                 </tr>
                 <tr>
                 
@@ -49,15 +68,28 @@ if($con->connect_error)
         $name=$_POST['name'];
         $mark=$_POST['mark'];
         
-        $insQue="insert into student(stud_id,stud_name,stud_mark)values($id,'$name',$mark)";
-        //echo $insQue;
-        if(mysqli_query($con,$insQue))
-             echo "\nInserted successfully\n";
-      
+        if(isset($_GET["uid"]))
+        {
+            $id=$_POST['id'];
+            $name=$_POST['name'];
+            $mark=$_POST['mark'];
         
-        else
+            $updateQue="update student set stud_id=$id,stud_name='$name',stud_mark=$mark where stud_id=$eid";
+            //echo $insQue;
+            if(mysqli_query($con,$updateQue))
+                echo "\nUpdated successfully\n";
+            else
                 echo " Failed";
-        
+        }
+        else
+        {   
+            $insQue="insert into student(stud_id,stud_name,stud_mark)values($id,'$name',$mark)";
+            //echo $insQue;
+            if(mysqli_query($con,$insQue))
+                echo "\nInserted successfully\n";
+            else
+                echo " Failed";
+        } 
     }
-
+    
 ?>

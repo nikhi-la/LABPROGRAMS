@@ -32,6 +32,7 @@ if(mysqli_num_rows($data)>0)
                     <td><?php echo $row["stud_name"]; ?></td> 
                     <td><?php echo $row["stud_mark"]; ?></td>
                     <td><a href="formoutput.php?sid=<?php echo $row['stud_id']?>">Delete</a></td>
+                    <td><a href="form.php?uid=<?php echo $row['stud_id']?>">Update</a></td>
                    
                 </tr>   
                 <?php
@@ -59,7 +60,7 @@ if(isset($_GET["sid"]))
     if(mysqli_query($con,$del))
     {
              echo "\nDeleted successfully\n";
-
+              header("Location: formoutput.php");
     }  
         
         else
