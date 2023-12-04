@@ -12,16 +12,36 @@ if(mysqli_num_rows($data)>0)
                     
 ?>
 <html>
-    
+    <style>
+        
+        body{
+            background-color: beige;
+        }
+        table{
+            background-color: azure;
+        }
+       input[ type="submit" ]
+       {
+           background-color: honeydew;
+       }
+       a{
+           text-decoration: none;
+           color: orangered;
+       }
+        
+    </style>
     <body>
     <center>
         <form id="form1" method="get">
-            <br><br><br>
-            <table border="1">
+            <br><br>
+            <h1 style="color:crimson">Internal Marks For PHP</h1>
+            <br>
+            <table border="1" width='500' height='200' cellpadding='20'>
                 <tr>
                     <td>Id</td>
                     <td>Student Name</td> 
                     <td>Mark</td>
+                    <td colspan='2'><center>Status</center></td>
                 </tr>   
                 <?php
                 while($row=mysqli_fetch_assoc($data))

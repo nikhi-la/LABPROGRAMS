@@ -25,11 +25,33 @@ if(isset($_GET["uid"]))
 ?>
 <html>
     
+    <style>
+        
+        body{
+            background-color: beige;
+        }
+        table{
+            background-color: azure;
+        }
+       input[ type="submit" ]
+       {
+           background-color: honeydew;
+       }
+       a{
+           text-decoration: none;
+           color: orangered;
+       }
+
+        
+    </style>
+    
     <body>
     <center>
         <form id="form1" method="post">
-            <br><br><br>
-            <table border="1">
+            <br> 
+            <h1 style="color:crimson">Internal Marks For PHP</h1>
+            <br><br>
+            <table border="1" width="300" height="200" cellpadding="15">
                 <tr>
                     <td>Id</td>
                     <td><input type="hidden" name="id" value="<?php echo $eid ?>">
@@ -45,7 +67,7 @@ if(isset($_GET["uid"]))
                 </tr>
                 <tr>
                 
-                    <td colspan="2"><center><input type="submit" name="submit" value="Submit"></center></td> 
+                    <td colspan="2"><center><input type="submit" name="submit" value="Submit">&nbsp;&nbsp;<input type="reset" name="reset" value="Reset"></center></td> 
                 
                 </tr>
                 <tr>
