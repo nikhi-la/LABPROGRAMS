@@ -1,83 +1,68 @@
 #include <stdio.h>
 #include <conio.h>
 
-int i,j,n,a;
-int stack[10],top=-1,cost[10][10],v,visited[10],newarr[10],x=0;
-int dfs(int);
-void main()
-{
+int n, i, j, visited[20], stack[20], cost[20][20], x = 0;
 
-	clrscr();
+void dfs();
 
-	printf("Enter the number of nodes\n");
-	scanf("%d",&n);
-	for(i=1;i<=n;++i)
-	 {
-		visited[i]=0;
-	 }
+void main() {
+    int v;
+    clrscr();
+    printf("\nEnter the number of vertices: ");
+    scanf("%d", &n);
 
-	printf("Enter cost adjacency matrix\n");
-	for (i=1;i<=n;++i)
-	{
-		for(j=i;j<=n;++j)
-		{
-			printf("Enter cost( %d,%d )\n",i,j);
-			scanf("%d",&cost[i][j]);
-			cost[j][i]=cost[i][j];
-		}
+    printf("\nEnter the elements\n");
+    for (i = 0; i < n; i++) {
+	for (j = i; j < n; j++) {
+	    printf("\nEdge(%d,%d)", i, j);
+	    scanf("%d", &cost[i][j]);
+	    cost[j][i] = cost[i][j];
 	}
-	for (i=1;i<=n;++i)
-	{
-		for(j=1;j<=n;++j)
-		{
-			printf("%d ",cost[i][j]);
-		}
-		printf("\n");
+    }
+
+    for (i = 0; i < n; i++) {
+	for (j = 0; j < n; j++) {
+	    printf("%d\t", cost[i][j]);
 	}
-	printf("Enter the starting vertex\n");
-	scanf("%d",&v);
-	visited[v]=1;
-	top++;
-	stack[top]=v;
-	a=dfs(v);
-	printf("Visited Array\n");
-	for(j=1;j<=n;++j)
-		{
-			printf("%d ",visited[j]);
-		}
-		printf("Stack Array\n");
-		for(j=n-1;j>=0;--j)
-		{
-			printf("%d\n",stack[j]);
-		}
-		printf("New Array\n");
-		for(j=1;j<=n;++j)
-		{
-			printf("%d\n",newarr[j]);
-		}
+	printf("\n");
+    }
 
-	getch();
 
+    printf("\nEnter the starting vertex: ");
+    scanf("%d", &v);
+    visited[v] = 1;
+   // printf("\nDFS Traversal: ");
+   // printf("%d ", v);
+    stack[0] = v;
+    dfs();
+
+    getch();
 }
 
-int dfs(int v)
-{
-	for(i=1;i<=n;++i)
-	{
-		if(cost[v][i]>0 && !visited[i])
-		{
-			top++;
-			visited[i]=1;
-			stack[top]=i;
-			dfs(top);
-		}
-
-
+void dfs() {
+    int top = 0;
+    int popped[20]; // To store popped elements for printing later
+    int p = 0; // Index for storing popped elements
+    while (top >= 0) {
+	int current = stack[top];
+	int found = 0;
+	for (i = 0; i < n; i++) {
+	    if (cost[current][i] == 1 && visited[i] == 0) {
+		visited[i] = 1;
+	       // printf("%d ", i);
+		stack[++top] = i;
+		found = 1;
+		break;
+	    }
 	}
+	if (!found) {
+	    popped[p++] = stack[top]; // Store popped element
+	    top--;
+	}
+    }
 
-		x++;
-		newarr[x]=stack[top];
-		top--;
-	return top;
-
+    printf("\nTraversing Order from Stack: ");
+    for (i = p - 1; i >= 0; i--) {
+	printf("%d ", popped[i]); // Print elements in popping order
+    }
 }
