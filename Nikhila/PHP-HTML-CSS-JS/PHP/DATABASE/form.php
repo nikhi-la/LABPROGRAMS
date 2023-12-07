@@ -99,7 +99,7 @@ if(isset($_GET["uid"]))
             $updateQue="update student set stud_id=$id,stud_name='$name',stud_mark=$mark where stud_id=$eid";
             //echo $insQue;
             if(mysqli_query($con,$updateQue))
-                echo "\nUpdated successfully\n";
+                header("Location: formoutput.php");
             else
                 echo " Failed";
         }
@@ -108,7 +108,7 @@ if(isset($_GET["uid"]))
             $insQue="insert into student(stud_id,stud_name,stud_mark)values($id,'$name',$mark)";
             //echo $insQue;
             if(mysqli_query($con,$insQue))
-                echo "\nInserted successfully\n";
+                header("Location: form.php");
             else
                 echo " Failed";
         } 

@@ -38,10 +38,10 @@ if(mysqli_num_rows($data)>0)
             <br>
             <table border="1" width='500' height='200' cellpadding='20'>
                 <tr>
-                    <td>Id</td>
-                    <td>Student Name</td> 
-                    <td>Mark</td>
-                    <td colspan='2'><center>Status</center></td>
+                    <th>Id</th>
+                    <th>Student Name</th> 
+                    <th>Mark</th>
+                    <th colspan='2'><center>Status</center></th>
                 </tr>   
                 <?php
                 while($row=mysqli_fetch_assoc($data))
@@ -58,6 +58,9 @@ if(mysqli_num_rows($data)>0)
                 <?php
                 }
                 ?>
+                <tr>
+                    <td colspan="5"><center><a href="form.php">Go Back</a> or <a href="formsearch.php">Search</a></center></td>
+                </tr>
             </table>
             
         </form>
@@ -76,7 +79,7 @@ if(isset($_GET["sid"]))
     $id=$_GET["sid"];
     //echo $_GET["sid"];
     $del="delete from student where stud_id=$id ";
-    echo $del;
+    //echo $del;
     if(mysqli_query($con,$del))
     {
              echo "\nDeleted successfully\n";
